@@ -1,1 +1,1 @@
-# wordl
+# wordle
