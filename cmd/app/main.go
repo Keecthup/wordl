@@ -5,7 +5,7 @@ import (
 	"mygame/pkg/game"
 	"net/http"
 )
-
+/// главный фонк
 func main() {
 	http.HandleFunc("/", game.Handler)
 	log.Println("Сервер запущен на порту :8080")

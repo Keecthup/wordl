@@ -8,17 +8,17 @@ import (
 	"net/http"
 	"text/template"
 )
-
+/// попытки и загаданное слово
 var (
 	attempts  []*word.Word
 	rightWord string
 )
-
+/// сообщение пользователя и попытки
 type PageData struct {
 	Message  string
 	Attempts []*word.Word
 }
-
+/// хэндлеры
 func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		tmpl := template.Must(template.ParseFiles("index.html"))
@@ -55,21 +55,21 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, data)
 	}
 }
-
+/// получение попыток
 func GetAttempts() []*word.Word {
 	return attempts
 }
-
+/// добавление попыток
 func AddAttempt(attempt *word.Word) {
 	attempts = append(attempts, attempt)
 }
-
+/// рестарт игры
 func ResetGame() {
 
 	attempts = []*word.Word{}
 	rightWord = persistence.GetRandomWord()
 }
-
+/// сравнение слов
 func Compare(current, correct *word.Word) {
 	usedIndices := make(map[int]bool)
 

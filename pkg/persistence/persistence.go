@@ -6,7 +6,7 @@ import (
 	"mygame/pkg/constants"
 	"os"
 )
-
+/// Проверка на валидность слова
 func IsWordValid(word string) bool {
 	file, err := os.Open("dictionary.txt")
 	if err != nil {
@@ -22,7 +22,7 @@ func IsWordValid(word string) bool {
 	}
 	return false
 }
-
+/// функция на получение рандомного слова из словаря
 func GetRandomWord() string {
 	file, err := os.Open("dictionary.txt")
 	if err != nil {
